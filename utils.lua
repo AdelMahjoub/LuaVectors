@@ -2,7 +2,7 @@ local utils = {}
 
 -- Normalization
 -- Taking a range of values and a value withinh that range
--- and converting that value to a number between 0 to 1
+-- and converting it to a number between 0 to 1
 -- that indicate where the value lies within that range
 -- @param<number> value
 -- @param<number> min
@@ -15,7 +15,7 @@ utils.norm = function(value, min, max)
     return (value - min) / (max - min)
 end
 
--- Liner interpolation, is the exact opposite of normalization
+-- Linear interpolation, is the exact opposite of normalization
 -- we start with a range and a normalized value
 -- and it will return the value in that range that the normalized value points to
 -- @param<number> norm: normalized value
@@ -123,7 +123,7 @@ utils.randomInt = function(min, max)
     return math.floor(min + math.random() * (max - min + 1))
 end
 
--- Random distribution (alsoo known as Normal distribution)
+-- Random distribution (maybe also known as Normal distribution)
 -- Given a range and a number of iterations, get the average of the random generated numbers
 -- The average is most likely be closer to the mid range than the edges
 -- @param<number> min
