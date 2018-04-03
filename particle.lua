@@ -16,7 +16,7 @@ local function getParticle(x, y, speed, direction, grav)
     -- The particle moves when its velocity vector is added to its position vector
     -- The particle accelerate when one or multiple vectors are added to its velocity vector
     -- @field<number> mass
-    -- @field<number radius
+    -- @field<number> radius
     -- @field<Vector> position
     -- @field<Vector> velocity
     -- @field<Vector> gravity
@@ -34,15 +34,15 @@ local function getParticle(x, y, speed, direction, grav)
 
     particle.gravity = getVector(0, grav or 0)
 
-    -- Add an acceleration vector to the particle's velocity (@field velocity)
+    -- Add an acceleration vector to the particle's velocity
     -- @param<Vector> v 
     particle.accelerate = function(v)
         particle.velocity.addTo(v)
     end
     
     -- Update the particle position and velocity (Movement and acceleration)
-    -- by adding the particle's velocity(@field velocity) to the particle's position(@field position)
-    -- and adding the particle's gravity(@field gravity) to the particle's velocity(@field velocity)
+    -- by adding the particle's velocity to the particle's position
+    -- and adding the particle's gravity to the particle's velocity
     particle.update = function()
         particle.velocity.multiplyBy(particle.friction)
         particle.accelerate(particle.gravity)
@@ -68,7 +68,7 @@ local function getParticle(x, y, speed, direction, grav)
     end
 
     -- If this particle is within the attraction field of another particle then this particle can gravitate to that particle
-    -- by adding the attraction vector to this particle velocity (@field velocity)
+    -- by adding the attraction vector to this particle velocity
     -- the attraction magnitude is equal to (the attracting particle mass) / (distance between the two particles) ^ 2
     -- the attraction vector is defined by the attraction magnitude and the angle between the two particles
     -- @param<Particle>
